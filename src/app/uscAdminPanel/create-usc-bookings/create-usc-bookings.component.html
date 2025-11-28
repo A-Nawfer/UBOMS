@@ -1,0 +1,157 @@
+<div class="body">
+
+  <div class="booking-toolbar">
+    <mat-toolbar class="toolbar-back" color="primary" fxFlex>
+      <button mat-icon-button class="icon" [routerLink]="['/home-usc']" aria-label="Navigate to Admin Panel Navigation Page">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span class="span">CREATE BOOKING</span>
+    </mat-toolbar>
+  </div>
+
+  <div class="form-container" fxLayout="column">
+    <form #bookingUSCForm="ngForm" (ngSubmit)="submitBookingUSC()">
+        <div>
+          <label for="fnameUSC">Full Name</label>
+        </div>
+        <div>
+            <input
+            type="text"
+            class="in-fname"
+            id="fnameUSC"
+            name="fnameUSC"
+            value="{{formData.fullName}}"
+            [(ngModel)]="formData.fullName"
+            #fnameUSC="ngModel"
+            required
+            pattern="^(\w\w+)\s(\w+)$">
+        </div>
+        <div>
+          <div style="color:red"
+              *ngIf="fnameUSC.errors && (fnameUSC.dirty || fnameUSC.touched)">
+              <p *ngIf="fnameUSC.errors?.['required']">
+                  <sup>*</sup>Full Name is required
+              </p>
+              <p *ngIf="fnameUSC.errors?.['pattern']">
+                  <sup>*</sup>First Name & Surname is required
+              </p>
+          </div>
+        </div>
+
+        <div>
+            <label for="numberUSC">Mobile Number</label>
+        </div>
+        <div>
+            <input
+            type="number"
+            class="in-number"
+            id="numberUSC"
+            name="numberUSC"
+            value="{{formData.contactNumber}}"
+            [(ngModel)]="formData.contactNumber"
+            #numberUSC="ngModel"
+            required
+            pattern="[0-9]{9}">
+        </div>
+        <div>
+            <div style="color:red"
+                *ngIf="numberUSC.errors && (numberUSC.dirty || numberUSC.touched)">
+                <p *ngIf="numberUSC.errors?.['required']">
+                    <sup>*</sup>Contact Number is required
+                </p>
+                <p *ngIf="numberUSC.errors?.['pattern']">
+                    <sup>*</sup>Contact Number is invalid
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <label for="dateUSC">Booking Date</label>
+        </div>
+        <div>
+            <input
+            type="date"
+            class="in-bdate"
+            id="dateUSC"
+            name="dateUSC"
+            [min]="today"
+            max="{{bookMax}}"
+            value="{{formData.bookDate}}"
+            [(ngModel)]="bookDate"
+            #dateUSC="ngModel"
+            required>
+        </div>
+        <div>
+            <div style="color:red"
+                *ngIf="dateUSC.errors && (dateUSC.dirty || dateUSC.touched)">
+                <p *ngIf="dateUSC.errors?.['required']">
+                    <sup>*</sup>Booking Date is required
+                </p>
+            </div>
+        </div>
+
+        <div *ngIf="!dateUSC.errors && (dateUSC.dirty || dateUSC.touched)">
+            <div>
+                <label for="timesUSC">Time Slot</label>
+            </div>
+            <div>
+                <select
+                    name="timesUSC"
+                    class="in-tslot"
+                    value="{{formData.timeSlot}}"
+                    [(ngModel)]="formData.timeSlot"
+                    #timeSlotUSC="ngModel"
+                    (change)="isTimeSlotTaken()"
+                    required>
+                    <option>06:00</option>
+                    <option>07:00</option>
+                    <option>08:00</option>
+                    <option>09:00</option>
+                    <option>10:00</option>
+                    <option>11:00</option>
+                    <option>12:00</option>
+                    <option>13:00</option>
+                    <option>14:00</option>
+                    <option>15:00</option>
+                    <option>16:00</option>
+                    <option>17:00</option>
+                    <option>18:00</option>
+                    <option>19:00</option>
+                    <option>20:00</option>
+                    <option>21:00</option>
+                    <option>22:00</option>
+                    <option>23:00</option>
+                </select>
+            </div>
+            <div>
+                <div style="color:red"
+                    *ngIf="(timeSlotUSC.dirty || timeSlotUSC.touched)">
+                    <p *ngIf="timeSlotUSC.errors && timeSlotUSC.errors?.['required']">
+                        <sup>*</sup>Time Slot is required
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div style="color:red">
+                <p *ngIf="bookingUSCForm.invalid">
+                    <sup>*</sup>Make sure all fields above are filled
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <button
+            class="btnSubmit"
+            type="submit">Submit</button>
+
+            <button
+            class="btnReset"
+            type="button"
+            (click)="ResetFormUSC()">Reset</button>
+        </div>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,22 @@
+<div class="main-container">
+
+  <div class="booking-toolbar">
+    <mat-toolbar class="toolbar-back" color="primary" fxFlex>
+      <button mat-icon-button class="icon" [routerLink]="['/home-usc']" aria-label="Navigate to Admin Panel Navigation Page">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span class="span">REPORTS</span>
+    </mat-toolbar>
+  </div>
+
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link
+    *ngFor="let link of navLinks"
+    [routerLink]="link.link"
+    routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">
+    {{link.label}}
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

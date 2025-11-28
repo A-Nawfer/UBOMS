@@ -1,0 +1,85 @@
+.choice-body{
+  background-image: url('src/assets/images/uboms-choice-bg.jpg');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-color: black;
+  background-position: center;
+
+  height: 100vh;
+  padding:0;
+  margin:0;
+}
+
+.header{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.logo-left{
+  display:block;
+  margin:auto;
+  width: 25%;
+}
+
+.logo-center{
+  display:block;
+  margin:auto;
+  width: 15%;
+}
+
+.logo-right{
+  display:block;
+  margin:auto;
+  width: 25%;
+}
+
+.choices {
+  padding: 2%;
+}
+
+.btn-UFC {
+  width: 80%;
+  margin-left: 10%;
+  height: 20%;
+  cursor: pointer;
+  outline: none;
+  border: 2px solid #a71c1c;
+  border-radius: 5px;
+  box-shadow: 0 2vw 3vw 0 rgba(0, 0, 0, 0.5), 0 2vw 3vw 0 rgba(0, 0, 0, 0.5);
+  background-color:  rgba(255, 255, 255, 0.397);
+}
+
+.btn-UFC:hover {background-color:  rgba(180, 124, 124, 0.548);}
+
+.btn-UFC:active {background-color:  rgba(204, 114, 114, 0.753);}
+
+.btn-UFC img {
+  width: 25%;
+  height: 100%;
+  margin-left: 37.5%;
+}
+
+.btn-USC {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 2%;
+  height: 20%;
+  margin-left: 10%;
+  cursor: pointer;
+  outline: none;
+  border: 2px solid #1d2a9c;
+  border-radius: 5px;
+  box-shadow: 0 2vw 3vw 0 rgba(0, 0, 0, 0.5), 0 2vw 3vw 0 rgba(0, 0, 0, 0.5);
+  background-color:  rgba(255, 255, 255, 0.397);
+}
+
+.btn-USC:hover {background-color:  rgba(124, 130, 180, 0.548);}
+
+.btn-USC:active {background-color:  rgba(114, 116, 204, 0.753);}
+
+.btn-USC img {
+  width: 25%;
+  height: 100%;
+  margin-left: 37.5%;
+}

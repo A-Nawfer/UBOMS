@@ -1,0 +1,139 @@
+<div class="main-container">
+
+  <div class="booking-toolbar">
+    <mat-toolbar class="toolbar-back" color="primary" fxFlex>
+      <button mat-icon-button class="icon" [routerLink]="['/home-usc']" aria-label="Navigate to Admin Panel Navigation Page">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <span class="span">REAL-TIME BOOKING MANAGEMENT</span>
+      <span class="spacer"></span>
+    </mat-toolbar>
+  </div>
+
+  <div class="tables-container">
+    <mat-card class="table1">
+      <mat-card-header>
+        <mat-card-title>Table 1</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="assets/images/pool-table.jpg" alt="USC">
+      <mat-card-actions>
+        <button mat-button color="primary" *ngIf="timerStarted1 == false"
+        (click)="startTimer1(3600)" id="btnStartGame">
+          START
+        </button>
+        <button mat-button color="warn" *ngIf="timerStarted1 == true"
+        (click)="closeTimer1()" id="btnCloseGame">
+        CLOSE
+      </button>
+      </mat-card-actions>
+      <mat-card-content>
+        <h2 id="open-table" *ngIf="timerStarted1 == false">
+          This Table is Open
+        </h2>
+        <div id="timer-container1">
+          <cd-timer class="timer" id="timer1" #timer format="hms" [startTime]="1"
+          [endTime]="3600" *ngIf="timerStarted1 == true">
+          </cd-timer>
+        </div>
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-progress-bar mode="determinate" [color]="updateColor1()"
+        [value]="progressBarValue1"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+
+    <mat-card class="table2">
+      <mat-card-header>
+        <mat-card-title>Table 2</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="assets/images/pool-table.jpg" alt="USC">
+      <mat-card-actions>
+        <button mat-button color="primary" *ngIf="timerStarted2 == false"
+        (click)="startTimer2(3600)" id="btnStartGame">
+          START
+        </button>
+        <button mat-button color="warn" *ngIf="timerStarted2 == true"
+        (click)="closeTimer2()" id="btnCloseGame">
+        CLOSE
+      </button>
+      </mat-card-actions>
+      <mat-card-content>
+        <h2 id="open-table" *ngIf="timerStarted2 == false">
+          This Table is Open
+        </h2>
+        <div id="timer-container2">
+          <cd-timer class="timer" id="timer2" #timer format="hms" [startTime]="1"
+          [endTime]="3600" *ngIf="timerStarted2 == true">
+          </cd-timer>
+        </div>
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-progress-bar mode="determinate" [color]="updateColor2()"
+        [value]="progressBarValue2"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+
+    <mat-card class="table3">
+      <mat-card-header>
+        <mat-card-title>Table 3</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="assets/images/pool-table.jpg" alt="USC">
+      <mat-card-actions>
+        <button mat-button color="primary" *ngIf="timerStarted3 == false"
+        (click)="startTimer3(3600)" id="btnStartGame">
+          START
+        </button>
+        <button mat-button color="warn" *ngIf="timerStarted3 == true"
+        (click)="closeTimer3()" id="btnCloseGame">
+        CLOSE
+      </button>
+      </mat-card-actions>
+      <mat-card-content>
+        <h2 id="open-table" *ngIf="timerStarted3 == false">
+          This Table is Open
+        </h2>
+        <div id="timer-container3">
+          <cd-timer class="timer" id="timer3" #timer format="hms" [startTime]="1"
+          [endTime]="3600" *ngIf="timerStarted3 == true">
+          </cd-timer>
+        </div>
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-progress-bar mode="determinate" [color]="updateColor3()" [value]="progressBarValue3"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+
+    <mat-card class="table4">
+      <mat-card-header>
+        <mat-card-title>Table 4</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="assets/images/pool-table.jpg" alt="USC">
+      <mat-card-actions>
+        <button mat-button color="primary" *ngIf="timerStarted4 == false"
+        (click)="startTimer4(3600)" id="btnStartGame">
+          START
+        </button>
+        <button mat-button color="warn" *ngIf="timerStarted4 == true"
+        (click)="closeTimer4()" id="btnCloseGame">
+        CLOSE
+      </button>
+      </mat-card-actions>
+      <mat-card-content>
+        <h2 id="open-table" *ngIf="timerStarted4 == false">
+          This Table is Open
+        </h2>
+        <div id="timer-container4">
+          <cd-timer class="timer" id="timer4" #timer format="hms" [startTime]="1"
+          [endTime]="3600" *ngIf="timerStarted4 == true">
+          </cd-timer>
+        </div>
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-progress-bar mode="determinate" [color]="updateColor4()"
+        [value]="progressBarValue4"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+
+</div>

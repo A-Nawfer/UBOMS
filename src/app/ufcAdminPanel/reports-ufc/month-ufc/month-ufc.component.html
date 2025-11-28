@@ -1,0 +1,29 @@
+<div class="main-container">
+  <div>
+    <table  datatable data-order='[[ 3, "asc" ],[ 4, "asc" ]]'
+            class="table hover order-column stripe" id="ufcDataTable"
+            [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+      <caption>{{yesterMonth}} Bookings</caption>
+      <thead>
+        <tr>
+          <th>Booking ID</th>
+          <th>Name</th>
+          <th>Contact Number</th>
+          <th>Booking Date</th>
+          <th>Time Slot</th>
+          <th>User ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ufcBooking of ufcbookings">
+          <td>{{ufcBooking.bookingId}}</td>
+          <td>{{ufcBooking.fullName}}</td>
+          <td>{{ufcBooking.contactNumber}}</td>
+          <td>{{ufcBooking.bookDate}}</td>
+          <td>{{ufcBooking.timeSlot}}</td>
+          <td>{{ufcBooking.userId}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

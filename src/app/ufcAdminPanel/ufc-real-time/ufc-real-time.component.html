@@ -1,0 +1,38 @@
+<div class="main-container">
+
+  <div class="booking-toolbar">
+    <mat-toolbar class="toolbar-back" color="primary" fxFlex>
+      <button mat-icon-button class="icon" [routerLink]="['/home-ufc']" aria-label="Navigate to Admin Panel Navigation Page">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span class="span">REAL-TIME BOOKING MANAGEMENT</span>
+    </mat-toolbar>
+  </div>
+
+  <div class="session-container">
+    <mat-card class="pitch">
+      <img mat-card-image src="assets/images/futsal-pitch.jpg" alt="UFC">
+      <mat-card-actions>
+        <button mat-button color="primary" *ngIf="timerStarted == false"
+        (click)="startTimer(3600)" id="btnStartGame">
+          START
+        </button>
+        <button mat-button color="warn" *ngIf="timerStarted == true"
+        (click)="closeTimer()" id="btnCloseGame">
+        CLOSE
+      </button>
+      </mat-card-actions>
+      <mat-card-content>
+        <h2 id="open-table1" *ngIf="timerStarted == false">The Court is currently Open</h2>
+        <div id="timer-container">
+          <cd-timer class="timer" id="timer" #timer format="hms" [startTime]="1"
+          [endTime]="3600" *ngIf="timerStarted == true">
+          </cd-timer>
+        </div>
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-progress-bar mode="determinate" [color]="updateColor()" [value]="progressBarValue"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>

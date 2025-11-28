@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.toolbar-back .icon{
+  color: white;
+  width: 5%;
+  transition: color 0.5s ease;
+}
+
+.toolbar-back .icon:hover{
+  color: darksalmon;
+}
+
+.toolbar-back .spacer{
+  width: 5%;
+}
+
+.main-container{
+  padding: 5px;
+}
+

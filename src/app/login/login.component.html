@@ -1,0 +1,28 @@
+<div class="login-body">
+  <div class="loading" *ngIf="auth.isLoading$ | async; else loaded">
+    <div  class="spinner">
+    <img [src]="loadingImg" alt="Loading..." />
+  </div>
+  </div>
+
+  <ng-template #loaded>
+    <div class="login-container">
+      <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+        <app-choice></app-choice>
+      </ng-container>
+      <ng-template #loggedOut>
+        <mat-card class="login-card">
+          <mat-card-header class="login-card-head">
+            <mat-card-title color="primary" style="font-size: 300%;">LOGIN</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="/assets/images/uboms-logos-main.png" alt="UBOMS Logos">
+          <mat-card-content class="login-card-content">
+            <button style="font-size: 35px;" mat-raised-button color="primary" (click)="loginWithRedirect()">
+              LOGIN TO UBOMS
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </ng-template>
+    </div>
+  </ng-template>
+</div>

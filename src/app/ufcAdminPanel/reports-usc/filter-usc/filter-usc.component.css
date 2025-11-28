@@ -1,0 +1,22 @@
+.main-container{
+  padding: 5px;
+}
+
+thead {
+  background-color: black;
+  color: white;
+}
+
+table {
+  width: 90%;
+  margin-left:5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+td {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+}

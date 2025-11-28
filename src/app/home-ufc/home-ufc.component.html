@@ -1,0 +1,18 @@
+<div class="home-ufc-body">
+  <p>
+    <mat-toolbar class="toolbar-back" color="primary">
+      <button mat-icon-button class="icon" aria-label="Example icon-button with menu icon" [routerLink]="['/choice']">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span class="span">UFC - ADMIN PANEL</span>
+      <span class="spacer"></span>
+    </mat-toolbar>
+  </p>
+  <div class="panel-container">
+    <button class="panel-option" [routerLink]="['/manage-ufc']">MANAGE BOOKINGS</button>
+    <button class="panel-option" [routerLink]="['/create-ufc']">CREATE BOOKINGS</button>
+    <button class="panel-option" [routerLink]="['/ufc-real-time']">MANAGE SESSIONS REAL-TIME</button>
+    <button class="panel-option" [routerLink]="['/reports-ufc']">REPORTS</button>
+    <button class="panel-option" (click)="logout()">SIGN OUT</button>
+  </div>
+</div>

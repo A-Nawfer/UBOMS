@@ -1,0 +1,159 @@
+<div class="body">
+
+  <div class="booking-toolbar">
+    <mat-toolbar class="toolbar-back" color="primary" fxFlex>
+      <button mat-icon-button class="icon" [routerLink]="['/home-ufc']" aria-label="Navigate to Admin Panel Navigation Page">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <span class="span">CREATE BOOKING</span>
+      <span class="spacer"></span>
+    </mat-toolbar>
+  </div>
+
+  <div class="form-container" fxLayout="column">
+    <form #bookingUFCForm="ngForm" (ngSubmit)="submitBookingUFC()">
+        <div>
+          <label for="fnameUFC">Full Name</label>
+        </div>
+        <div>
+            <input
+            type="text"
+            class="in-fname"
+            id="fnameUFC"
+            name="fnameUFC"
+            value="{{formData.fullName}}"
+            [(ngModel)]="formData.fullName"
+            #fnameUFC="ngModel"
+            required
+            pattern="^(\w\w+)\s(\w+)$">
+        </div>
+        <div>
+          <div style="color:red"
+              *ngIf="fnameUFC.errors && (fnameUFC.dirty || fnameUFC.touched)">
+              <p *ngIf="fnameUFC.errors?.['required']">
+                  <sup>*</sup>Full Name is required
+              </p>
+              <p *ngIf="fnameUFC.errors?.['pattern']">
+                  <sup>*</sup>First Name & Surname is required
+              </p>
+          </div>
+        </div>
+
+        <div>
+            <label for="numberUFC">Mobile Number</label>
+        </div>
+        <div>
+            <input
+            type="number"
+            class="in-number"
+            id="numberUFC"
+            name="numberUFC"
+            value="{{formData.contactNumber}}"
+            [(ngModel)]="formData.contactNumber"
+            #numberUFC="ngModel"
+            required
+            pattern="[0-9]{9}">
+        </div>
+        <div>
+            <div style="color:red"
+                *ngIf="numberUFC.errors && (numberUFC.dirty || numberUFC.touched)">
+                <p *ngIf="numberUFC.errors?.['required']">
+                    <sup>*</sup>Contact Number is required
+                </p>
+                <p *ngIf="numberUFC.errors?.['pattern']">
+                    <sup>*</sup>Contact Number is invalid
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <label for="dateUFC">Booking Date</label>
+        </div>
+        <div>
+            <input
+            type="date"
+            class="in-bdate"
+            id="dateUFC"
+            name="dateUFC"
+            [min]="today"
+            max="{{bookMax}}"
+            value="{{formData.bookDate}}"
+            [(ngModel)]="bookDate"
+            #dateUFC="ngModel"
+            required>
+        </div>
+        <div>
+            <div style="color:red"
+                *ngIf="dateUFC.errors && (dateUFC.dirty || dateUFC.touched)">
+                <p *ngIf="dateUFC.errors?.['required']">
+                    <sup>*</sup>Booking Date is required
+                </p>
+            </div>
+        </div>
+
+        <div *ngIf="!dateUFC.errors && (dateUFC.dirty || dateUFC.touched)">
+            <div>
+                <label for="timesUFC">Time Slot</label>
+            </div>
+            <div>
+                <select
+                    name="timesUFC"
+                    class="in-tslot"
+                    value="{{formData.timeSlot}}"
+                    [(ngModel)]="formData.timeSlot"
+                    #timeSlotUFC="ngModel"
+                    (change)="isTimeSlotTaken()"
+                    required>
+                    <option>06:00</option>
+                    <option>07:00</option>
+                    <option>08:00</option>
+                    <option>09:00</option>
+                    <option>10:00</option>
+                    <option>11:00</option>
+                    <option>12:00</option>
+                    <option>13:00</option>
+                    <option>14:00</option>
+                    <option>15:00</option>
+                    <option>16:00</option>
+                    <option>17:00</option>
+                    <option>18:00</option>
+                    <option>19:00</option>
+                    <option>20:00</option>
+                    <option>21:00</option>
+                    <option>22:00</option>
+                    <option>23:00</option>
+                </select>
+            </div>
+            <div>
+                <div style="color:red"
+                    *ngIf="(timeSlotUFC.dirty || timeSlotUFC.touched)">
+                    <p *ngIf="timeSlotUFC.errors && timeSlotUFC.errors?.['required']">
+                        <sup>*</sup>Time Slot is required
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div style="color:red">
+                <p *ngIf="bookingUFCForm.invalid">
+                    <sup>*</sup>Make sure all fields above are filled
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <button
+            class="btnSubmit"
+            type="submit">Submit</button>
+
+            <button
+            class="btnReset"
+            type="button"
+            (click)="ResetFormUFC()">Reset</button>
+        </div>
+    </form>
+  </div>
+
+</div>

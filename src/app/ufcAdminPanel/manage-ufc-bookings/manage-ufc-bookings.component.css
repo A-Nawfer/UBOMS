@@ -1,0 +1,57 @@
+.main-container{
+  margin: 5px;
+}
+
+.booking-toolbar {
+  padding-bottom: 10px;
+}
+
+thead {
+  background-color: black;
+  color: white;
+}
+
+table {
+  width: 90%;
+  margin-left:5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+td {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+td mat-icon {
+  margin-left: 20px;
+}
+
+.editForm {
+  background-color: aliceblue;
+  opacity: 0.8;
+  border-radius: 5px;
+  margin: 10px;
+  display: flex;
+  padding: 5px;
+  margin-bottom: 40px;
+  align-items: center;
+}
+
+input, select{
+  width: 90%;
+  height: 40px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 11px;
+}
+
+button{
+  width: 100px;
+}

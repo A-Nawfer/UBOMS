@@ -1,0 +1,92 @@
+<div class="main-container">
+
+  <div class="booking-toolbar">
+    <mat-toolbar class="toolbar-back" color="primary" fxFlex>
+      <button mat-icon-button class="icon" [routerLink]="['/home-usc']" aria-label="Navigate to Admin Panel Navigation Page">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span class="span">MANAGE BOOKINGS</span>
+    </mat-toolbar>
+  </div>
+
+  <div>
+    <table  datatable data-order='[[ 3, "asc" ],[ 4, "asc" ]]'
+            class="table hover order-column stripe"
+            [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+      <thead>
+        <tr>
+          <th>Booking ID</th>
+          <th>Name</th>
+          <th>Contact Number</th>
+          <th>Booking Date</th>
+          <th>Time Slot</th>
+          <th>User ID</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let uscBooking of uscbookings">
+          <td>{{uscBooking.bookingId}}</td>
+          <td>{{uscBooking.fullName}}</td>
+          <td>{{uscBooking.contactNumber}}</td>
+          <td>{{uscBooking.bookDate}}</td>
+          <td>{{uscBooking.timeSlot}}</td>
+          <td>{{uscBooking.userId}}</td>
+          <td>
+          <mat-icon aria-hidden="false" color="primary" (click)=editRecordUSC(uscBooking) aria-label="Edit icon" fontIcon="edit"></mat-icon>
+          <mat-icon aria-hidden="false" color="warn" (click)=deleteRecordUSC(uscBooking.bookingId) aria-label="Delete icon" fontIcon="delete_outline"></mat-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="editForm" fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="2%">
+    <table>
+        <tr>
+            <td>
+                <input type="date" placeholder="Booking Date" (change)="resetTimeSlot()"
+                disabled="{{isUpdateSelected}}" [min]="today" max="{{bookMax}}"
+                [(ngModel)]="formData.bookDate">
+            </td>
+            <td>
+                <select placeholder="Time Slot"
+                    name="timesUSC"
+                    class="in-tslot"
+                    value="{{formData.timeSlot}}"
+                    [(ngModel)]="formData.timeSlot"
+                    #timeSlotUSC="ngModel"
+                    (change)="isTimeSlotTaken()"
+                    disabled="{{isUpdateSelected}}"
+                    required>
+                <option>06:00</option>
+                <option>07:00</option>
+                <option>08:00</option>
+                <option>09:00</option>
+                <option>10:00</option>
+                <option>11:00</option>
+                <option>12:00</option>
+                <option>13:00</option>
+                <option>14:00</option>
+                <option>15:00</option>
+                <option>16:00</option>
+                <option>17:00</option>
+                <option>18:00</option>
+                <option>19:00</option>
+                <option>20:00</option>
+                <option>21:00</option>
+                <option>22:00</option>
+                <option>23:00</option>
+                </select>
+            </td>
+            <td>
+                <button mat-raised-button (click)="confirmEditUSC()" disabled="{{isUpdateSelected}}" color="primary">Confirm</button>
+            </td>
+            <td>
+                <button mat-raised-button (click)="resetEditUSC()" color="warn">Cancel</button>
+            </td>
+        </tr>
+    </table>
+  </div>
+
+</div>

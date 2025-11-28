@@ -1,0 +1,73 @@
+.main-container{
+  padding: 5px;
+  background-image: url("src/assets/images/usc-real-time-bg.jpg");
+  height: max-content;
+}
+
+.span {
+  margin: auto;
+}
+
+.booking-toolbar {
+  padding-bottom: 20px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.tables-container{
+  display: inline-grid;
+  column-gap: 50px;
+  row-gap: 50px;
+}
+
+.table1{
+  width: 50%;
+  margin-left: 25%;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.table2{
+  width: 50%;
+  margin-left: 25%;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.table3{
+  width: 50%;
+  margin-left: 25%;
+}
+
+.table4{
+  width: 50%;
+  margin-left: 25%;
+}
+
+mat-card-header{
+  margin: auto;
+}
+
+mat-card img{
+  width: 54%;
+  margin-left: 22%;
+}
+
+mat-card-actions{
+  margin: auto;
+}
+
+mat-card-content{
+  margin: auto;
+  padding: 20px;
+}
+
+#open-table{
+  font-size: x-large;
+}
+
+.timer{
+  font-size: x-large;
+}
